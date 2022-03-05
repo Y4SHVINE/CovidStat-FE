@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Recent Travels</strong>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Russia</td>
+          <td>2022/01/01</td>
+          <td>2022/01/01</td>
+        </tr>
+        <tr>
+          <td>Ukrain</td>
+          <td>2022/01/01</td>
+          <td>2022/02/01</td>
+        </tr>
+      </tbody>
+    </table>
+    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="select1">Country</label>
+        <div class="col-md-4">
+          <select id="select1" name="select1" class="form-control">
+            <option value="">Please select</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Russia">Russia</option>
+            <option value="Ukrain">Ukrain</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="date-input">Date of Departure</label>
+        <div class="col-md-4">
+          <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="date-input">Date of Arrival</label>
+        <div class="col-md-4">
+          <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+  </div>
+</div>
