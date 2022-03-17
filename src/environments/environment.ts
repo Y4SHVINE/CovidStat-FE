@@ -6,3 +6,8 @@
 export const environment = {
   production: false
 };
+
+export const API = {
+  COVID_STAT_BE: "https://localhost:5001/api/v1/"
+};
+

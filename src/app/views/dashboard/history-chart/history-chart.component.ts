@@ -16,6 +16,7 @@ export class HistoryChartComponent implements OnInit {
   public lineChartOptions: any = {
     animation: false,
     responsive: true,
+    maintainAspectRatio: false,
     elements: {
       line: {
         borderWidth: 2,
