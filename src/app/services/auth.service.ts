@@ -9,7 +9,7 @@ export class AuthService {
 
   authenticateUrl = API.COVID_STAT_BE + "user/Authenticate";
   registerUserUrl = API.COVID_STAT_BE + "user";
-  getUserByEmailUrl= API.COVID_STAT_BE + "User?email="
+  getUserByEmailUrl= API.COVID_STAT_BE + "user?email="
 
   constructor(private http: HttpClient) { }
 

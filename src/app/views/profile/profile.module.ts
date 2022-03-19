@@ -7,6 +7,8 @@ import { DigitalSignatureComponent } from './digital-signature/digital-signature
 import { VaccinationsComponent } from './vaccinations/vaccinations.component';
 import { TravelInfoComponent } from './travel-info/travel-info.component';
 import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LaddaModule } from 'angular7-ladda';
 
 
 @NgModule({
@@ -19,7 +21,12 @@ import { BasicInfoComponent } from './basic-info/basic-info.component';
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    LaddaModule.forRoot({
+      style: "slide-right",
+    }),
   ]
 })
 export class ProfileModule { }
