@@ -3,5 +3,5 @@ export const environment = {
 };
 
 export const API = {
-  COVID_STAT_BE: "https://covidstat.stivix.com/api/v1/"
+  COVID_STAT_BE: "/api/v1/"
 };
