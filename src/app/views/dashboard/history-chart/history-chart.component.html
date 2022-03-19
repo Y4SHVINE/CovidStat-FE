@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    Covid Historical Stats - Sri Lanka
+  </div>
+  <div class="card-body">
+    <div class="chart-wrapper">
+      <canvas baseChart class="chart chart-canvas" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        [colors]="lineChartColours" [legend]="lineChartLegend" [chartType]="lineChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+</div>

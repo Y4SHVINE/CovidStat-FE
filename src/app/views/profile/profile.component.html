@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" *ngIf="!profileLoading">
   <div class="col-md-6">
-    <basic-info></basic-info>
+    <basic-info [profile]="profileData"></basic-info>
     <digital-signature></digital-signature>
   </div>
   <div class="col-md-6">

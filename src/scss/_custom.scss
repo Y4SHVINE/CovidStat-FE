@@ -1,1 +1,4 @@
 // Here you can add other styles
+input.ng-invalid.ng-touched , input.ng-invalid.ng-dirty{
+  @extend .is-invalid;
+}
