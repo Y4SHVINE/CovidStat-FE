@@ -70,6 +70,6 @@
     </form>
   </div>
   <div class="card-footer">
-    <button [ladda]="savingProfile" (click)="createProfile()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+    <button [ladda]="savingProfile" (click)="createProfile()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> {{profile?.id ? 'Update': 'Submit'}}</button>
   </div>
 </div>

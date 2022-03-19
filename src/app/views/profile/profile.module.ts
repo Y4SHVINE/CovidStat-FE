@@ -9,6 +9,8 @@ import { TravelInfoComponent } from './travel-info/travel-info.component';
 import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LaddaModule } from 'angular7-ladda';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 @NgModule({
@@ -27,6 +29,10 @@ import { LaddaModule } from 'angular7-ladda';
     LaddaModule.forRoot({
       style: "slide-right",
     }),
+    ToastrModule.forRoot(),
+  ],
+  providers:[
+    ToastrService
   ]
 })
 export class ProfileModule { }

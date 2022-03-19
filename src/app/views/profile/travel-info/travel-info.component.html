@@ -24,11 +24,11 @@
         </tr>
       </tbody>
     </table>
-    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form [formGroup]="travelForm" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="select1">Country</label>
         <div class="col-md-4">
-          <select id="select1" name="select1" class="form-control">
+          <select id="select1" name="select1" formControlName="counntry" class="form-control">
             <option value="">Please select</option>
             <option value="India">India</option>
             <option value="USA">USA</option>
@@ -40,13 +40,13 @@
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="date-input">Date of Departure</label>
         <div class="col-md-4">
-          <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+          <input class="form-control" formControlName="dateOfDepature" id="date-input" type="date" name="date-input" placeholder="date">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="date-input">Date of Arrival</label>
         <div class="col-md-4">
-          <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+          <input class="form-control" formControlName="dateOfArrival" id="date-input" type="date" name="date-input" placeholder="date">
         </div>
       </div>
     </form>

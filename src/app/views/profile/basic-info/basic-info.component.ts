@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ToastrService } from "ngx-toastr";
 import { ProfileService } from "../../../services/profile.service";
 import { getUserEmail, getUserNIC } from "../../../utils/user.util";
 
@@ -15,11 +16,11 @@ export class BasicInfoComponent implements OnInit {
   maxDate = new Date().toISOString().split("T")[0];
   savingProfile = false;
 
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService,private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.basicInfo = new FormGroup({
-      id: new FormControl(this.profile?.id ?? 0),
+      // id: new FormControl(this.profile?.id ?? 0),
       nIC: new FormControl(this.profile?.nic ?? "", [Validators.required]),
       fullName: new FormControl(this.profile?.fullName ?? ""),
       email: new FormControl(this.profile?.email ?? "", [Validators.required]),
@@ -45,18 +46,39 @@ export class BasicInfoComponent implements OnInit {
       .get("phoneNumber")
       .setValue(this.basicInfo.get("phoneNumber").value.toString());
     if (this.basicInfo.valid) {
-      this.profileService.createUserProfile(this.basicInfo.value).subscribe(
-        (res) => {
-          if (res) {
-
+      if (this.profile == null || this.profile.id == null) {
+        const profileData = this.profile?.id ? {
+          ...this.basicInfo.value,
+          id: this.profile?.id
+        } : this.basicInfo.value;
+        this.profileService.createUserProfile(profileData).subscribe(
+          (res) => {
+            if (res) {
+              this.toastr.success('Profile Created!', 'Success');
+              this.savingProfile = false;
+            }
+          },
+          (error) => {
+            console.log(error);
+            this.toastr.error('Something went wrong!', 'Error');
             this.savingProfile = false;
           }
-        },
-        (error) => {
-          console.log(error);
-          this.savingProfile = false;
-        }
-      );
+        );
+      } else {
+        this.profileService
+          .updateUserProfile(this.basicInfo.value, getUserNIC())
+          .subscribe(
+            (res) => {
+                this.savingProfile = false;
+                this.toastr.success('Profile Data Updated!', 'Success');
+            },
+            (error) => {
+              console.log(error);
+              this.savingProfile = false;
+              this.toastr.error('Something went wrong!', 'Error');
+            }
+          );
+      }
     }
   };
 }
