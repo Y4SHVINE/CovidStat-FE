@@ -3,5 +3,5 @@ export const environment = {
 };
 
 export const API = {
-  COVID_STAT_BE: "https://localhost:5001/api/v1/"
+  COVID_STAT_BE: "http://35.171.68.83/api/v1/"
 };
