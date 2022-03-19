@@ -20,9 +20,9 @@ export class ProfileComponent implements OnInit {
 
   getProfileinfor = () =>{
     this.profileService.getUserByNic(getUserNIC()).subscribe(res=>{
+      this.profileLoading = false;
       if(res?.result?.length > 0){
         this.profileData = res.result[0];
-        this.profileLoading = false;
       }
     },error=>{
       console.log(error);

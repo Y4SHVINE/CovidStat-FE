@@ -9,6 +9,7 @@ export class ProfileService {
 
   private getUserProfile = API.COVID_STAT_BE + "profile?nIC="
   private createProfile = API.COVID_STAT_BE + "profile"
+  private updateProfile = API.COVID_STAT_BE + "profile/"
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,10 @@ export class ProfileService {
 
   createUserProfile = (userProfile)=>{
     return this.http.post<any>(this.createProfile,userProfile);
+  }
+
+  updateUserProfile = (userProfile,nic)=>{
+    return this.http.put<any>(this.updateProfile + nic ,userProfile);
   }
 
 }
