@@ -3,7 +3,7 @@
     <strong>Recent Travels</strong>
   </div>
   <div class="card-body">
-    <table class="table table-bordered table-striped table-sm">
+    <table class="table table-bordered table-striped table-sm" *ngIf="travelData">
       <thead>
         <tr>
           <th>Country</th>
@@ -12,15 +12,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Russia</td>
-          <td>2022/01/01</td>
-          <td>2022/01/01</td>
-        </tr>
-        <tr>
-          <td>Ukrain</td>
-          <td>2022/01/01</td>
-          <td>2022/02/01</td>
+        <tr *ngFor="let travel of travelData">
+          <td>{{travel.country}}</td>
+          <td>{{travel.dateOfDepature}}</td>
+          <td>{{travel.dateOfArrival}}</td>
         </tr>
       </tbody>
     </table>
@@ -28,12 +23,9 @@
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="select1">Country</label>
         <div class="col-md-4">
-          <select id="select1" name="select1" formControlName="counntry" class="form-control">
+          <select id="select1" name="select1" formControlName="country" class="form-control">
             <option value="">Please select</option>
-            <option value="India">India</option>
-            <option value="USA">USA</option>
-            <option value="Russia">Russia</option>
-            <option value="Ukrain">Ukrain</option>
+            <option *ngFor="let country of countryData" [value]="country">{{country}}</option>
           </select>
         </div>
       </div>
@@ -52,6 +44,6 @@
     </form>
   </div>
   <div class="card-footer">
-    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+    <button type="submit" (click)="createTravel()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
   </div>
 </div>

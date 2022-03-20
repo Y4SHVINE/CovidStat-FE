@@ -10,6 +10,7 @@ export class DashboardService {
 
   private currentStat = "https://www.hpb.health.gov.lk/api/get-current-statistical";
   private historyStat = "https://hpb.health.gov.lk/api/get-statistical-history-data";
+  private countryStat = "https://coronavirus-19-api.herokuapp.com/countries";
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +20,9 @@ export class DashboardService {
 
   getHistoricalStats = () =>{
     return this.http.get<HistoryStat>(this.historyStat);
+  }
+
+  getCountyStats = () =>{
+    return this.http.get<any>(this.countryStat);
   }
 }
