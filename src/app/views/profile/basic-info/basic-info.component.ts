@@ -54,6 +54,9 @@ export class BasicInfoComponent implements OnInit {
         this.profileService.createUserProfile(profileData).subscribe(
           (res) => {
             if (res) {
+              this.profile = {
+                ...this.basicInfo.value,
+              };
               this.toastr.success('Profile Created!', 'Success');
               this.savingProfile = false;
             }
