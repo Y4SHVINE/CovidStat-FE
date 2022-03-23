@@ -14,6 +14,7 @@ export class TravelInfoComponent implements OnInit {
   @Input() profile;
 
   savingtravelData = false;
+  disableBtn= false;
   travelData =[];
   countryData =[];
   travelForm: FormGroup;
@@ -24,12 +25,20 @@ export class TravelInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.travelData = this.profile?.travels;
+    this.travelData.forEach(td => {
+      td.dateOfDepature = new Date(td.dateOfDepature).toISOString().split("T")[0];
+      td.dateOfArrival = new Date(td.dateOfArrival).toISOString().split("T")[0];
+    });
     this.travelForm = new FormGroup({
       country: new FormControl("", [Validators.required]),
       dateOfDepature: new FormControl(null, [Validators.required]),
       dateOfArrival: new FormControl(null, [Validators.required]),
     });
     this.getCountryList();
+    if(!this.profile){
+      this.travelForm.disable();
+      this.disableBtn = true;
+    }
   }
 
   //get Counntry list
@@ -49,6 +58,7 @@ export class TravelInfoComponent implements OnInit {
             this.savingtravelData = false;
             this.travelData.push(this.travelForm.value);
             this.toastr.success('Travel Data Created!', 'Success');
+            this.travelForm.reset();
           },
           (error) => {
             this.savingtravelData = false;
