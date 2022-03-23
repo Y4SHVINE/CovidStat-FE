@@ -57,6 +57,8 @@ export class VaccinationComponent implements OnInit {
     this.nicSearchForm.get("nicSearchText").enable();
   };
 
+  getLocation = () => getUserLocation();
+
   onSubmit = () => {
     this.savingVaccinationData = true;
     this.vaccinationForm
