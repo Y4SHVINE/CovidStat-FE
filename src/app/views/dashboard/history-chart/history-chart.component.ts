@@ -67,7 +67,6 @@ export class HistoryChartComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.historyStatus);
     this.historyStatus = this.historyStatus.reverse();
     this.lineChartLabels = this.historyStatus.map(a=>a.date);
     const activeCaseCount = this.historyStatus.map(a=>a.active_cases_count);

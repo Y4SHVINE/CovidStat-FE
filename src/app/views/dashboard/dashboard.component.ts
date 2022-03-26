@@ -284,7 +284,6 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getCurrentStats().subscribe(
       (res) => {
         this.currentStatus = res.data;
-        console.log(this.currentStatus);
       },
       (error) => {
         console.log(error);

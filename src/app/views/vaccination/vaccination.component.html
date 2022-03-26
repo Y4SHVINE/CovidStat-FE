@@ -40,9 +40,10 @@
                 <div class="col-md-9">
                   <select id="select1" formControlName="vaccine" name="select1" class="form-control">
                     <option value="">Please select</option>
-                    <option value="India">Sinopharm</option>
-                    <option value="USA">Sputnic</option>
-                    <option value="Russia">Phicer</option>
+                    <option value="Sinopharm">Sinopharm</option>
+                    <option value="AstraZeneca">AstraZeneca</option>
+                    <option value="Sputnic">Sputnic</option>
+                    <option value="Phicer">Phicer</option>
                   </select>
                 </div>
               </div>
@@ -67,8 +68,8 @@
             </form>
           </div>
           <div class="card-footer">
-            <button type="submit" (click)="onSubmit()" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> Submit</button>
-            <button type="button" (click)="cancelSelection()" class="btn btn-sm btn-warning"><i class="fa fa-dot-circle-o"></i> Cancel</button>
+            <button type="submit" [ladda]="savingVaccinationData" (click)="onSubmit()" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="button" (click)="cancelSelection()" class="btn btn-sm btn-warning pl"><i class="fa fa-dot-circle-o"></i> Cancel</button>
           </div>
         </div>
       </div>
