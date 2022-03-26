@@ -15,30 +15,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Sinopharm</td>
-          <td>2022/01/01</td>
-          <td>MOH</td>
-          <td>Headache</td>
+        <tr *ngFor="let vaccine of vaccinationData; let i=index">
+          <td>{{i +1}}</td>
+          <td>{{vaccine.vaccine}}</td>
+          <td>{{getFormattedDate(vaccine.dateOfVaccination)}}</td>
+          <td>{{vaccine.location}}</td>
+          <td>{{vaccine.sideEffects.toString()}}</td>
           <td>
             <span class="badge badge-success">Done</span>
           </td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>Sinopharm</td>
-          <td>2022/02/01</td>
-          <td>MOH</td>
-          <td>Arm Pain</td>
-          <td>
-            <span class="badge badge-success">Done</span>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
+          <td>{{vaccinationData.length + 1}}</td>
           <td>-</td>
-          <td>2022/02/01</td>
+          <td>{{getNextVaccinationDate()}}</td>
           <td>-</td>
           <td>-</td>
           <td>
