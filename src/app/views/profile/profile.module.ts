@@ -10,6 +10,7 @@ import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LaddaModule } from 'angular7-ladda';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
       style: "slide-right",
     }),
     ToastrModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers:[
     ToastrService

@@ -17,4 +17,8 @@ export class VaccinationService {
   getVaccinationByNIC = (nic) => {
     return this.http.get<any>(`${this.vaccinationUrl}?nIC=${nic}`);
   };
+
+  createVaccineSideEffect = (id,sideEffect) => {
+    return this.http.post<any>(`${this.vaccinationUrl}/sideeffect/${id}`,sideEffect);
+  };
 }

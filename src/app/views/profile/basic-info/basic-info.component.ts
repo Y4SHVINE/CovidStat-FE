@@ -15,6 +15,9 @@ export class BasicInfoComponent implements OnInit {
   basicInfo: FormGroup;
   maxDate = new Date().toISOString().split("T")[0];
   savingProfile = false;
+  chronicConditions = [
+    "Cancer", "Heart", "Stroke", "Diabetes", "Arthritis"
+  ];
 
   constructor(private profileService: ProfileService,private toastr: ToastrService) {}
 
@@ -32,6 +35,7 @@ export class BasicInfoComponent implements OnInit {
       ),
       gender: new FormControl(this.profile?.gender ?? ""),
       martialStatus: new FormControl(this.profile?.martialStatus ?? ""),
+      chronicDiseases: new FormControl(this.profile?.chronicDiseases ?? []),
     });
   }
 
@@ -84,4 +88,21 @@ export class BasicInfoComponent implements OnInit {
       }
     }
   };
+
+  onChronicChange = (cd) =>{
+    const chronics = this.basicInfo.get('chronicDiseases').value;
+    if (chronics.some(a=>a.disease == cd)) {
+      const removeIndex = chronics.findIndex(
+        (a) => a.disease == cd
+      );
+      chronics.splice(removeIndex, 1);
+      return;
+    }
+    chronics.push({disease : cd});
+  }
+
+  checkStatus = (cd) =>{
+    const chronics = this.basicInfo.get('chronicDiseases').value;
+    return chronics.find(a=> a.disease ==cd) ? true :false;
+  }
 }
