@@ -64,6 +64,17 @@
           </div>
         </div>
       </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label">Chronic conditions</label>
+        <div class="col-md-9 col-form-label">
+          <div class="form-check" *ngFor="let cc of chronicConditions">
+            <input [checked]="checkStatus(cc)" class="form-check-input" (change)="onChronicChange(cc)" type="checkbox" [value]="cc" [id]="cc">
+            <label class="form-check-label" [for]="cc">
+              {{cc}}
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
   <div class="card-footer">

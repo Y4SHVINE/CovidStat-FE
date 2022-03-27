@@ -2,8 +2,8 @@
   <div class="card-header">
     <strong>Vaccinations</strong>
   </div>
-  <div class="card-body">
-    <table class="table table-bordered table-striped table-sm">
+  <div class="card-body table-content">
+    <table class="table table-bordered table-striped table-sm" *ngIf="vaccinationData.length > 0">
       <thead>
         <tr>
           <th>Dose</th>
@@ -20,7 +20,14 @@
           <td>{{vaccine.vaccine}}</td>
           <td>{{getFormattedDate(vaccine.dateOfVaccination)}}</td>
           <td>{{vaccine.location}}</td>
-          <td>{{vaccine.sideEffects.toString()}}</td>
+          <td>
+            <span (click)="addSideEffectsModal(vaccine)" *ngIf="vaccine.sideEffects?.length == 0">
+              <i class="fa fa-plus"></i>
+            </span>
+            <span *ngFor="let se of vaccine.sideEffects;let sei=index">
+              {{se.detail}}<span *ngIf="sei != vaccine.sideEffects.length -1">,</span>
+            </span>
+          </td>
           <td>
             <span class="badge badge-success">Done</span>
           </td>
@@ -37,9 +44,47 @@
         </tr>
       </tbody>
     </table>
+    <p *ngIf="vaccinationData.length == 0">No Vaccination Records</p>
   </div>
   <div class="card-footer">
-    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> Share</button>
+    <!-- <button type="submit"  class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> Share</button> -->
   </div>
 </div>
 
+<div bsModal #sideEffectsModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" (click)="closeSideEffectModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="selectedVaccine != null">
+        <div class="row">
+          <div class="col-md-6">
+            <p>Vaccine : <b>{{selectedVaccine.vaccine}}</b></p>
+          </div>
+          <div class="col-md-6">
+            <p>Date : <b>{{getFormattedDate(selectedVaccine.dateOfVaccination)}}</b></p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Side Effects</label>
+          <div class="col-md-9 col-form-label">
+            <div class="form-check" *ngFor="let se of sideEffectsList">
+              <input class="form-check-input" (change)="onSideEffectChange(se)" type="checkbox" [value]="se" [id]="se">
+              <label class="form-check-label" [for]="se">
+                {{se}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeSideEffectModal()">Close</button>
+        <button  [ladda]="updatingVaccine" type="button" (click)="updateVaccine()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
