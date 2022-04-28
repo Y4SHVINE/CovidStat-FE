@@ -1,0 +1,47 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form>
+                <h1>User - {{nic}}</h1>
+                <div class="card-body table-content">
+                  <table class="table table-bordered table-striped table-sm" *ngIf="vaccinationData.length > 0">
+                    <thead>
+                      <tr>
+                        <th>Dose</th>
+                        <th>Vaccine</th>
+                        <th>Date of Vaccination</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let vaccine of vaccinationData; let i=index">
+                        <td>{{i +1}}</td>
+                        <td>{{vaccine.vaccine}}</td>
+                        <td>{{getFormattedDate(vaccine.dateOfVaccination)}}</td>
+                        <td>{{vaccine.location}}</td>
+                        <td>
+                          <span class="badge badge-success">Done</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p *ngIf="vaccinationData.length == 0">No Vaccination Records</p>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer p-4">
+              <div class="col-12">
+                <img style="width: inherit;" src="assets/img/brand/logo.png" alt="logo">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

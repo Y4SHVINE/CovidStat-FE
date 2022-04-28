@@ -8,6 +8,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { UserInforComponent } from './views/user-infor/user-infor.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,13 @@ export const routes: Routes = [
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: ':nic/info',
+    component: UserInforComponent,
+    data: {
+      title: 'User Information'
     }
   },
   {

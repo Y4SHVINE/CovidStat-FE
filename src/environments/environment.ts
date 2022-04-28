@@ -11,3 +11,8 @@ export const API = {
   COVID_STAT_BE: "https://localhost:5001/api/v1/"
 };
 
+export const HOST = {
+  COVID_STAT_FE: "http://localhost:4200/#"
+};
+
+

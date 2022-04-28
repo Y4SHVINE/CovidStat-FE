@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LaddaModule } from 'angular7-ladda';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       style: "slide-right",
     }),
     ToastrModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    QRCodeModule
   ],
   providers:[
     ToastrService
