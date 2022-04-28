@@ -36,6 +36,7 @@
     "@coreui/icons": "^2.0.0-rc.0",
     "@coreui/icons-angular": "1.0.0-alpha.3",
     "angular7-ladda": "^2.0.1",
+    "angularx-qrcode": "^11.0.0",
     "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
     "classlist.js": "^1.1.20150312",

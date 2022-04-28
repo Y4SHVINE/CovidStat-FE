@@ -39,12 +39,7 @@ export class VaccinationsComponent implements OnInit {
     this.vaccinationService.getVaccinationByNIC(getUserNIC()).subscribe(
       (res) => {
         if (res) {
-          this.vaccinationData = (res.result || []).sort((a, b) => {
-            return (
-              new Date(a.dateOfVaccination).getDate() -
-              new Date(b.dateOfVaccination).getDate()
-            );
-          });
+          this.vaccinationData = (res.result || []);
         }
       },
       (error) => {
