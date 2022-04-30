@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { UserInforComponent } from './views/user-infor/user-infor.component';
+import { CovidInfoComponent } from './views/covid-info/covid-info.component';
 
 export const routes: Routes = [
   {
@@ -69,6 +70,13 @@ export const routes: Routes = [
       {
         path: 'vaccination',
         loadChildren: () => import('./views/vaccination/vaccination.module').then(m => m.VaccinationModule)
+      },
+      {
+        path: 'covid-info',
+        component: CovidInfoComponent,
+        data: {
+          title: 'Covid 19 Information'
+        }
       }
     ]
   },

@@ -15,5 +15,10 @@ export const navItems: INavData[] = [
     name: 'Vaccination',
     url: '/vaccination',
     icon: 'icon-pencil',
+  },
+  {
+    name: 'Covid-19',
+    url: '/covid-info',
+    icon: 'icon-cursor',
   }
 ];

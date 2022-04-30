@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HistoryChartComponent } from './history-chart/history-chart.component';
 import { CommonModule } from '@angular/common';
+import { StatChartComponent } from './stat-chart/stat-chart.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { CommonModule } from '@angular/common';
     BsDropdownModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ DashboardComponent, HistoryChartComponent ]
+  declarations: [ DashboardComponent, HistoryChartComponent, StatChartComponent ]
 })
 export class DashboardModule { }

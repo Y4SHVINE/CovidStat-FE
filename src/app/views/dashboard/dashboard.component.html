@@ -70,6 +70,11 @@
     </div><!--/.col-->
   </div><!--/.row-->
   <div class="row">
+    <div class="col-md-6 col-sm-12" *ngFor="let vac of vaccineStats">
+      <stat-chart [chartName]="vac.vaccine" [pieChartLabels]="vac.pieChartLabels" [pieChartData]="vac.pieChartData"></stat-chart>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-12 history-chart-wrapper" *ngIf="historyStatus.length > 0">
       <history-chart [historyStatus]="historyStatus"></history-chart>
     </div>
