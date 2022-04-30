@@ -4,6 +4,7 @@ import { CustomTooltips } from "@coreui/coreui-plugin-chartjs-custom-tooltips";
 import { DashboardService } from "../../services/dashboard.service";
 import { CurrentStatData } from "../../models/currentStatModel";
 import { HistoryData } from "../../models/historyStatModel";
+import { StatsService } from "../../services/stats.service";
 
 @Component({
   templateUrl: "dashboard.component.html",
@@ -272,12 +273,14 @@ export class DashboardComponent implements OnInit {
 
   public currentStatus: CurrentStatData = null;
   public historyStatus: HistoryData[] = [];
+  public vaccineStats = [];
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private dashboardService: DashboardService, private statsService:StatsService) {}
 
   ngOnInit(): void {
     this.getCurrentCovidState();
     this.getHistoryStats();
+    this.getVaccinationStats();
   }
 
   getCurrentCovidState = () => {
@@ -301,4 +304,20 @@ export class DashboardComponent implements OnInit {
       }
     );
   };
+
+  getVaccinationStats =() =>{
+    this.statsService.getStats().subscribe(res=>{
+      console.log(res);
+      (res || []).forEach(item => {
+        this.vaccineStats.push({
+          vaccine: item.vaccine,
+          pieChartLabels: item.sideEffectStatics.map(a=>a.sideEffect),
+          pieChartData: item.sideEffectStatics.map(a=>a.count)
+        })
+      });
+
+    },error=>{
+      console.log(error);
+    })
+  }
 }

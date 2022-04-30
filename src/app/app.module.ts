@@ -51,6 +51,7 @@ import { TokenInterceptor } from "./interceptors/auth.interceptor";
 import { LaddaModule } from "angular7-ladda";
 import { UserInforComponent } from "./views/user-infor/user-infor.component";
 import { ToastrModule } from "ngx-toastr";
+import { CovidInfoComponent } from './views/covid-info/covid-info.component';
 
 @NgModule({
   imports: [
@@ -85,6 +86,7 @@ import { ToastrModule } from "ngx-toastr";
     LoginComponent,
     RegisterComponent,
     UserInforComponent,
+    CovidInfoComponent,
   ],
   providers: [
     {
