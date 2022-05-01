@@ -59,7 +59,9 @@ export class LoginComponent {
       (res) => {
         if (res) {
           this.isLoading = false;
-          localStorage.setItem("user", JSON.stringify(res.result[0]));
+          let user = res.result[0];
+          if(email == "yashvida.1007@gmail.com") user.isAdmin = true;
+          localStorage.setItem("user", JSON.stringify(user));
           this.router.navigate(["/dashboard"]);
         }
       },

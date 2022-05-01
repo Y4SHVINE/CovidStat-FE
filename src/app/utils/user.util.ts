@@ -17,3 +17,7 @@ export const getUserLocation = ()=> {
   return user && user.location ? user.location : 'MOH';
 }
 
+export const isAdmin = ()=> {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return user && user.isAdmin ? user.isAdmin : false;
+}
