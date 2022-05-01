@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import { navItems } from '../../_nav';
+import { isAdmin } from '../../utils/user.util';
+import { adminNavItems, navItems } from '../../_nav';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,7 @@ import { navItems } from '../../_nav';
 })
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
-  public navItems = navItems;
+  public navItems = isAdmin() ? adminNavItems : navItems;
 
   toggleMinimize(e) {
     this.sidebarMinimized = e;

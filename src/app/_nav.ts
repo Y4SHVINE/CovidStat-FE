@@ -12,6 +12,24 @@ export const navItems: INavData[] = [
     icon: 'icon-user-follow',
   },
   {
+    name: 'Covid-19',
+    url: '/covid-info',
+    icon: 'icon-cursor',
+  }
+];
+
+export const adminNavItems: INavData[] = [
+  {
+    name: 'Dashboard',
+    url: '/dashboard',
+    icon: 'icon-calculator',
+  },
+  {
+    name: 'Profile',
+    url: '/profile',
+    icon: 'icon-user-follow',
+  },
+  {
     name: 'Vaccination',
     url: '/vaccination',
     icon: 'icon-pencil',
