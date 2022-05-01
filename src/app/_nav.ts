@@ -15,6 +15,11 @@ export const navItems: INavData[] = [
     name: 'Covid-19',
     url: '/covid-info',
     icon: 'icon-cursor',
+  },
+  {
+    name: 'Contact Us',
+    url: '/contact-us',
+    icon: 'icon-puzzle',
   }
 ];
 
@@ -38,5 +43,10 @@ export const adminNavItems: INavData[] = [
     name: 'Covid-19',
     url: '/covid-info',
     icon: 'icon-cursor',
+  },
+  {
+    name: 'Contact Us',
+    url: '/contact-us',
+    icon: 'icon-puzzle',
   }
 ];

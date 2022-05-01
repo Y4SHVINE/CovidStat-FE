@@ -52,6 +52,7 @@ import { LaddaModule } from "angular7-ladda";
 import { UserInforComponent } from "./views/user-infor/user-infor.component";
 import { ToastrModule } from "ngx-toastr";
 import { CovidInfoComponent } from './views/covid-info/covid-info.component';
+import { ContactInfoComponent } from './views/contact-info/contact-info.component';
 
 @NgModule({
   imports: [
@@ -87,6 +88,7 @@ import { CovidInfoComponent } from './views/covid-info/covid-info.component';
     RegisterComponent,
     UserInforComponent,
     CovidInfoComponent,
+    ContactInfoComponent,
   ],
   providers: [
     {

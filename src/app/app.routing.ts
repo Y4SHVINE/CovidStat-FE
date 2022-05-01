@@ -10,6 +10,7 @@ import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { UserInforComponent } from './views/user-infor/user-infor.component';
 import { CovidInfoComponent } from './views/covid-info/covid-info.component';
+import { ContactInfoComponent } from './views/contact-info/contact-info.component';
 
 export const routes: Routes = [
   {
@@ -76,6 +77,13 @@ export const routes: Routes = [
         component: CovidInfoComponent,
         data: {
           title: 'Covid 19 Information'
+        }
+      },
+      {
+        path: 'contact-us',
+        component: ContactInfoComponent,
+        data: {
+          title: 'Contact Us'
         }
       }
     ]
